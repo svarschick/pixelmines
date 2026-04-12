@@ -1,0 +1,42 @@
+@startuml object-diagram
+
+skinparam linetype ortho
+
+object "game1: Minefield" as game1 {
+    state = FirstMove
+    openedCellCount = 0
+}
+
+object "storage1: MinefiledStorage" as storage1
+
+object "prop1: MinefieldProperty" as prop1 {
+    height = 16
+    width = 16
+    mines = 40
+}
+
+object "cellA: Field" as cellA {
+    value = 0
+    isOpen = false
+    isFlagged = false
+}
+
+object "cellB: Field" as cellB {
+    value = 1
+    isOpen = false
+    isFlagged = false
+}
+
+object "cellC: Field" as cellC {
+    value = 9
+    isOpen = false
+    isFlagged = false
+}
+
+game1 --> storage1
+storage1 *-- prop1
+storage1 *-- cellA
+storage1 *-- cellB
+storage1 *-- cellC
+
+@enduml

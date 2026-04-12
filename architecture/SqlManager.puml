@@ -3,7 +3,8 @@
 /'
     Set classic UML style
 '/
-skinparam linetype ortho 
+skinparam linetype ortho
+top to bottom direction
 /'
     end
 '/
@@ -71,12 +72,12 @@ class SqlManager
     +CleanDataBase()
 }
 
-GameHistory <- SqlHandler
-GameHistory <- SqlManager
-Profile <- SqlHandler
-Profile <- SqlManager
-DifficultyLevels <- SqlHandler
-DifficultyLevels <- SqlManager
-SqlHandler *- SqlManager
+GameHistory <-- SqlHandler
+GameHistory <-- SqlManager
+Profile <-- SqlHandler
+Profile <-- SqlManager
+DifficultyLevels <-- SqlHandler
+DifficultyLevels <-- SqlManager
+SqlHandler -* SqlManager
 
 @enduml
