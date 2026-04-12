@@ -1,0 +1,84 @@
+@startuml class-diagram
+
+/'
+    Set classic UML style
+'/
+skinparam linetype ortho 
+/'
+    end
+'/
+
+/'
+    Game core
+'/
+
+enum GameState
+{
+    Ready
+    FirstMove
+    InProgress
+    Won
+    Lose
+}
+
+enum OpenCellResult
+{
+    NoOp
+    Opened
+    Exploded
+    Won
+}
+
+struct Field {
+    +uint8 value
+    +bool  isOpen
+    +bool  isFlagged
+}
+
+struct MinefieldProperty
+{
+    +uint16 height
+    +uint16 width
+    +uint16 mines
+}
+
+class MinefiledStorage
+{
+    -property: MinefiledPproperty
+    -fileds: vector<Field>
+
+    +MinefieldStorage(MinefiledProperty property)
+    +Reset()
+    +At(x: Pos, y: Pos) : Field&
+    +AtIndex(index: size_t) : Field&
+    +ForEachNeightbour(x: Pos, y: Pos, fn: Fn&&)
+    +GetProperty() : MinefiledPproperty
+}
+
+class Minefield
+{
+    -minefiledStorege: shared_ptr<MinefiledStorage>
+    -state: GameState
+    -openedCellCount: uint64
+
+    +SetFieldStorage(storage: shared_ptr<MinefiledStorage>)
+    +GenerateField()
+    +Clean()
+    +ClickCell(x: Pos, y: Pos) : OpenCellResult
+    +ToggleFlag(x: Pos, y: Pos) : bool
+    -PlaceMines()
+    -ShuffleFields()
+    -RebuildHints()
+    -EnsureFirstMoveSafe()
+    -FloodOpen(x: Pos, y: Pos)
+    -RevealAllMines()
+    -HasWon() : bool
+}
+
+MinefieldProperty *-- MinefiledStorage
+Field <-- MinefiledStorage
+MinefiledStorage <-- Minefield
+GameState <.. Minefield
+OpenCellResult <.. Minefield
+
+@enduml

@@ -1,0 +1,82 @@
+@startuml class-diagram
+
+/'
+    Set classic UML style
+'/
+skinparam linetype ortho 
+/'
+    end
+'/
+
+' Sql manager
+struct GameHistory
+{
+    gameId: int
+    difficultyId: int
+    profileId: int
+    time: int
+    isWin: int
+    playedAt: std::time_point
+}
+
+struct Profile
+{
+    profileId: int
+    login: std::string
+    createdAt: std::time_point
+}
+
+struct DifficultyLevels
+{
+    difficultyId: int
+    difficultyName: std::string
+    filedWidth: int
+    fieldHeight: int
+    mineCount: int
+}
+
+class SqlHandler
+{
+    +InitDB(path: std::string)
+
+    +CollectGames(): vector<int>
+    +CollectProfiles(): vector<int>
+    +CollectDifficulty(): vector<int>
+
+    +SelectGame(id: int): GameHistory
+    +SelectProfile(id: int): Profile
+    
+    +InsertGame(game: GameHistory)
+    +InsertProfile(profile: Profile)
+
+    +DeleteGame(id: int)
+    +DeleteProfile(id: int)
+
+    sqlContext: sqlite3*
+}
+
+class SqlManager
+{
+    -sqlHandler: SqlHandler
+
+    +SqlManager(path: std::string)
+
+    +GetExistLevels(): vector<DifficultyLevels>
+    +GetExistProfile(): vector<Profile>
+    +GetExistGames(): vector<GameHistory>
+
+    +AddProfile(profile: Profile)
+    +DeleteProfile(profile: Profile)
+    +AddGameRecord(record: GameHistory)
+    +CleanDataBase()
+}
+
+GameHistory <- SqlHandler
+GameHistory <- SqlManager
+Profile <- SqlHandler
+Profile <- SqlManager
+DifficultyLevels <- SqlHandler
+DifficultyLevels <- SqlManager
+SqlHandler *- SqlManager
+
+@enduml

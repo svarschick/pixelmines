@@ -1,0 +1,154 @@
+@startuml class-diagram
+
+/'
+    Set classic UML style
+'/
+skinparam linetype ortho 
+left to right direction
+/'
+    end
+'/
+
+/'
+    Managers
+'/
+
+' Resource manager
+interface IUpdateInteractor
+{
+    +OnUpdateInteractor()
+}
+
+class FileSet
+{
+    +setName: QString
+    +files: QMap<QString, QString>
+
+    +FilePath(key: QString): QString
+}
+
+class FileSetLoader
+{
+    +ExistSetList(): QStringList
+    +LoadSet(setName: QString): shared_ptr<FileSet>
+}
+
+class ResourceManager
+{
+    -textureInteractor: shared_ptr<TextureInteractor>
+    -soundInteractor: shared_ptr<SoundInteractor>
+    -musicInteractor: shared_ptr<MusicInteractor>
+    -filedInteractor: shared_ptr<FieldTextureInteractor>
+
+    +SetTextureInteractor(interactor: TextureInteractor)
+    +SetSoundInteractor(interactor: SoundInteractor)
+    +SetMusicInteractor(interactor: MusicInteractor)
+    +SetFieldTextureInteractor(interactor: FieldTextureInteractor)
+    +SelectSet(name: QString)
+}
+
+' Texture manager
+class TextureInteractor
+{
+    +textureButtonLeftBorder: QString
+    +textureButtonPlashBorder: QString
+    +textureButtonRightBorder: QString
+    +textureSlider: QString
+    +textureLeftSliderBar: QString
+    +texturePlashSliderBar: QString
+    +textureRightSliderBar: QString
+    +textureGamePlash: QString
+    +textureLeftButton: QString
+    +textureRightButton: QString
+    +textureSelectedProfile: QString
+    +textureUnselectedProfile: QString
+    +textureSelectedCheckbox: QString
+    +textureUnselectedCheckbox: QString
+
+    +OnUpdateInteractor()
+}
+
+class TextureManager
+{
+    -resourceManager: shared_ptr<ResourceManager>
+    -textureInteractor: shared_ptr<TextureInteractor>
+
+    +TextureManager(manager: shared_ptr<ResourceManager>, engine: QQmlApplicationEngine, contextName: QString)
+    +SetTexturePack(name: QString)
+}
+
+' Sound manager
+class SoundInteractor
+{
+    +guiClick: QString
+    +fieldClick: QSring
+    +setFlag: QString
+    +removeFlag: QString
+    +explousion: QString
+    +win: QString
+
+    +OnUpdateInteractor()
+}
+
+class SoundManager
+{
+    -resourceManager: shared_ptr<ResourceManager>
+    -soundInteractor: shared_ptr<SoundInteractor>
+
+    +SoundManager(manager: shared_ptr<ResourceManager>, engine: QQmlApplicationEngine, contextName: QString)
+    +SetSoundPack(name: QString)
+}
+
+' Music manager
+class MusicInteractor
+{
+    +musicMenuCollection: QString
+    +musicGameCollection: QString
+
+    +OnUpdateInteractor()
+}
+
+class MusicManager
+{
+    -resourceManager: shared_ptr<ResourceManager>
+    -musicInteractor: shared_ptr<MusicInteractor>
+
+    +SoundManager(manager: shared_ptr<ResourceManager>, engine: QQmlApplicationEngine, contextName: QString)
+}
+
+' Field texture manager
+class FieldTextureInteractor
+{
+    +fieldTextureCollection: QString
+
+    +OnUpdateInteractor()
+}
+
+class FieldTextureManager
+{
+    -resourceManager: shared_ptr<ResourceManager>
+    -fieldTextureInteractor: shared_ptr<FieldTextureInteractor>
+
+    +FieldTextureManager(manager: shared_ptr<ResourceManager>, engine: QQmlApplicationEngine, contextName: QString)
+}
+
+FileSet <-- ResourceManager
+FileSet <-- FileSetLoader
+FileSetLoader *-- ResourceManager
+
+IUpdateInteractor <|.. TextureInteractor
+IUpdateInteractor <|.. SoundInteractor
+IUpdateInteractor <|.. MusicInteractor
+IUpdateInteractor <|.. FieldTextureInteractor
+
+TextureInteractor <-- ResourceManager
+SoundInteractor <-- ResourceManager
+MusicInteractor <-- ResourceManager
+FieldTextureInteractor <-- ResourceManager
+
+TextureInteractor <-- TextureManager
+SoundInteractor <-- SoundManager
+MusicInteractor <-- MusicManager
+FieldTextureInteractor <-- FieldTextureManager
+
+@enduml

@@ -1,0 +1,164 @@
+@startuml class-diagram
+
+/'
+    Set classic UML style
+'/
+skinparam linetype ortho 
+/'
+    end
+'/
+
+struct FieldView
+{
+    field: Field*
+    texture: QUrl
+}
+
+class LandscapeTextureGenerator
+{
+    +Generate(property: MinefieldProperty, textureVariantCount: uint64, seed: uint32): vector<int>
+
+    -SmoothStep()
+    -Lerp(lhs: double, rhs: double, t: double)
+    -Hash(x: int32, y: int32, seed: uint32): uint32
+    -Random01(x: int32, y: int32, seed: uint32): double
+    -ValueNoise(x: double, y: double, seed: uint32): double
+}
+
+class MinefieldSession
+{
+    -settingsManagerInteractor: shared_ptr<SettingsManagerInteractor>
+    -minefield: shared_ptr<Minefield>
+
+    +Property(): MinefieldProperty
+    +CurrentState(): GameState
+    +FieldStorage(): shared_ptr<MinefieldStorage>
+    +Configure(property: MinefieldProperty)
+    +Restart()
+    +LeftClick(mouseX: qreal, mouseY: qreal): bool
+    +RightClick(mouseX: qreal, mouseY: qreal): bool
+}
+
+class MinefieldInfoModel
+{
+    -minefiledSession: shared_ptr<MinefiledSession>
+    -profileInteractor: shared_ptr<ProfileManagerInteractor>
+    -updateTimer: QTimer
+    -elapsedTimer: QElapsedTimer
+    -elapsedSeconds: bool
+    -timerRunning: bool
+
+    +StateText(): QString
+    +ElapsedSeconds(): int
+    +ElapsedText(): QString
+    +ProfileName(): QString
+    -SetElapsedSeconds(value: int)
+    -StartTimer()
+    -StopTimer()
+}
+
+class MinefieldView
+{
+    -fieldModel: shared_ptr<MinefieldModel>
+    -infoModel: shared_ptr<MinefieldInfoModel>
+
+    +MinefieldView(session: shared_ptr<MinefieldSession>, fieldTextureInteractor shared_ptr<textureSet>)
+    +FieldModel(): QObject*
+    +InfoModel(): QObject*
+    +GetFieldModel(): MinefieldModel*
+    +GetInfoModel(): MinefieldInfoModel*
+}
+
+class MinefiledModel
+{
+    -minefiledSession: shared_ptr<MinefiledSession>
+    -fieldTextureInteractor: shared_ptr<FieldTextureInteractor>
+    -settingsManagerInteractor: shared_ptr<SettingsManagerInteractor>
+    -field: vector<FieldView*>
+    -landscapeSeed: uint32
+    -cameraX: qreal
+    -cameraY: qreal
+
+    +index(row: int, column: int): QModelIndex
+    +parent(index: QModelIndex): QModelIndex
+    +rowCount(parent: QModelIndex): int
+    +columnCount(parent: QModelIndex): int
+    +data(index: QModelIndex, role: Role): QVariant
+    +rolesName(): QHash<int, QByteArray>
+
+    +restart()
+    +leftClickAt(mouseX: qreal, mouseY: qreal)
+    +rightClickAt(mouseX: qreal, mouseY: qreal)
+    +moveCameraBy(dx: qreal, dy: qreal, viewportWidth: qreal, viewportHeight: qreal)
+    +setCameraPosition(x: qreal, y: qreal, viewportWidth: qreal, viewportHeight: qreal)
+    +clampCamera(viewportWidth: qreal, viewportHeight: qreal)
+    +centerCamera(viewportWidth: qreal, viewportHeight: qreal)
+
+    -CellFromMousePosition(mouseX: qreal, mouseY: qreal): std::optional<std::pair<Pos, Pos>>
+    -TextureSourceFor(flatIndex: size_t, field: Field): QString
+    -RebuildFieldViews()
+    -RegenerateLandscape()
+    -NotifyWholeFieldChanged()
+    -ApplyCameraClamp(viewportWidth: qreal, viewportHeight: qreal)
+}
+
+class SettingsManager
+{
+    -settingsManagerInteractor: SettingsManagerInteractor
+    -settingsRecord: QString
+
+    +SettingsManager()
+}
+
+class SettingsManagerInteractor
+{
+    +audioLevel: qreal
+    +soundLevel: qreal
+    +generalLevel: qreal
+    +guiMultiply: qreal
+}
+
+struct ProfileView
+{
+    +profile: Profile
+    +icon: QUrl
+}
+
+class ProfileManager
+{
+    -profileManagerInteractor: shared_ptr<ProfileManagerInteractor>
+    -sqlManager: shared_ptr<SqlManager>
+
+    +SetProfile(id: int)
+    +GetProfileCollection(): QVector<ProfileView>
+}
+
+class ProfileManagerInteractor
+{
+    +profileName: QString
+    +profileIcon: QUrl
+    +profileId: int
+}
+
+class MinefieldProperty
+{
+    +uint16 height
+    +uint16 width
+    +uint16 mines
+}
+
+MinefieldSession --> MinefieldProperty
+LandscapeTextureGenerator --> MinefieldProperty
+FieldView --* MinefiledModel
+LandscapeTextureGenerator --> MinefiledModel
+MinefieldSession --> MinefieldInfoModel
+MinefieldSession --> MinefiledModel
+MinefieldInfoModel --> MinefieldView
+MinefiledModel --> MinefieldView
+ProfileView --* ProfileManager
+ProfileManagerInteractor --> MinefieldInfoModel
+ProfileManagerInteractor --> ProfileManager
+MinefiledModel --> SettingsManagerInteractor
+SettingsManagerInteractor --> SettingsManager
+
+@enduml
