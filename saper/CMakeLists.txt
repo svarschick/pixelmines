@@ -1,8 +1,8 @@
 qt_add_executable(${PROJECT_NAME}
     main.cpp
-    app/managers/resource_manager/file_collector/file_hierarchy.h
-    app/managers/resource_manager/file_collector/file_hierarchy.cpp
-    app/managers/resource_manager/i_update_interactor.h
+    app/managers/sql_manager/sql_manager.h
+    app/managers/sql_manager/sql_handler.h
+    app/managers/sql_manager/sql_query.h
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -11,6 +11,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt6::Quick
         UiKitLib
         GUILib
+        sqlite
 )
 
 include(GNUInstallDirs)
@@ -26,5 +27,6 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
 )
 
+add_subdirectory(third_party)
 add_subdirectory(app)
 add_subdirectory(ui)

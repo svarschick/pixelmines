@@ -6,6 +6,7 @@ namespace app::managers
 class IUpdateInteractor
 {
 public:
+    virtual ~IUpdateInteractor() = default;
     virtual void OnUpdateInteractor() = 0;
 };
 
