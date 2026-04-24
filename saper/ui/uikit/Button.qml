@@ -22,6 +22,23 @@ Item {
 
     clip: true
 
+    Repeater {
+        id: plashBorder
+
+        anchors.left: leftBorder.left
+        anchors.top: parent.top
+
+        model: Math.max(0, Math.floor(width - buttonHeight * 2)) / plashWidth + 1
+        delegate: Image {
+            width: plashWidth
+            height: buttonHeight
+
+            source: texturePlash
+            smooth: false
+            antialiasing: true
+        }
+    }
+
     Image {
         id: leftBorder
 
@@ -34,23 +51,6 @@ Item {
         source: textureLeftBorder
         smooth: false
         antialiasing: true
-    }
-
-    Repeater {
-        id: plashBorder
-
-        anchors.left: leftBorder.left
-        anchors.top: parent.top
-
-        model: Math.max(0, Math.floor(width - buttonHeight * 2)) / plashWidth + 1
-        delegate: Image {
-            width: plashWidth
-            height: buttonHeight
-
-            source: textureRightBorder
-            smooth: false
-            antialiasing: true
-        }
     }
 
     Image {
@@ -70,6 +70,7 @@ Item {
     Rectangle {
         id: interact
 
+        anchors.fill: parent
         color: "white"
         opacity: 0
     }
@@ -91,11 +92,11 @@ Item {
     {
         if (tapHandler.pressed)
         {
-            interact.opacity = 0.4
+            interact.opacity = 0.2
         }
         else if (hoverHandler.hovered)
         {
-            interact.opacity = 0.2
+            interact.opacity = 0.1
         }
         else
         {
