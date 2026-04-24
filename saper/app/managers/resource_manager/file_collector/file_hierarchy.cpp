@@ -1,5 +1,3 @@
-#pragma once
-
 #include "file_hierarchy.h"
 
 namespace app::managers::file_collector

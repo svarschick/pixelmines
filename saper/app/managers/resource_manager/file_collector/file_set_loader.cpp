@@ -1,5 +1,3 @@
-#pragma once
-
 #include <QDir>
 #include <QUrl>
 #include <QFileInfo>
