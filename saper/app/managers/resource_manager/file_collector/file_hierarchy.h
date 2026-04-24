@@ -15,4 +15,6 @@ const QString AudioPath = "audio";
 
 } // namespace path
 
+const QString SettingsFile = "settings.json";
+
 } // namespace app::managers::file_collector

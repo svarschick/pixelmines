@@ -1,6 +1,7 @@
 #include "texture_manager.h"
 
 #include <QQmlContext>
+#include <QDebug>
 
 namespace app::managers
 {
@@ -11,6 +12,7 @@ TextureManager::TextureManager(ResourceManagerSPtr resourceManager, const QQmlAp
     m_textureInteractorSPtr = std::make_shared<TextureInteractor>();
     m_resourceManagerSPtr->SetTextureInteractor(m_textureInteractorSPtr);
     engine.rootContext()->setContextProperty(contextPropertyName, m_textureInteractorSPtr.get());
+    qInfo() << "[TextureManager]: init successful!";
 }
 void TextureManager::SetTexturePack(QString packName)
 {

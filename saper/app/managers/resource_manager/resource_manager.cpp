@@ -1,8 +1,10 @@
 #include "resource_manager.h"
+#include "file_collector/file_hierarchy.h"
 
 #include <QDebug>
 #include <QByteArray>
 #include <QVariant>
+#include <QFile>
 
 namespace app::managers
 {
@@ -34,11 +36,21 @@ void UpdateInteractor(T interactor, file_collector::FileSetSPtr fileSet)
 ResourceManager::ResourceManager()
 {
     m_fileSetLoader = std::make_shared<file_collector::FileSetLoader>();
+    qInfo() << "[ResourceManager]: init successful!";
 }
 
 void ResourceManager::SetTextureInteractor(TextureInteractorSPtr textureInteractor)
 {
     m_textureInteractor = textureInteractor;
+}
+
+void ResourceManager::SetSettingsInteractor(SettingsInteractorSPtr settingsInteractor)
+{
+    using namespace file_collector;
+    m_settingsInteractor = settingsInteractor;
+
+    auto settingsFileSPtr = std::make_shared<QFile>(path::RootResourcePath / SettingsFile);
+    m_settingsInteractor->setSettingsFile(std::move(settingsFileSPtr));
 }
 
 void ResourceManager::SelectTextureSet(QString setName)
