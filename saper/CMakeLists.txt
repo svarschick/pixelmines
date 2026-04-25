@@ -24,6 +24,7 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
 )
 
+add_subdirectory(core)
 add_subdirectory(utility)
 add_subdirectory(third_party)
 add_subdirectory(app)
