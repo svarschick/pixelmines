@@ -4,7 +4,12 @@ set_target_properties(UiKitLib PROPERTIES AUTOMOC ON)
 target_link_libraries(UiKitLib PRIVATE Qt6::Gui Qt6::Quick)
 
 list(APPEND UIKIT_QML_FILES
-    Button.qml
+    AdaptiveButton.qml
+    AdaptiveSlider.qml
+    DirectionButton.qml
+    AdaptiveCheckbox.qml
+    PImage.qml
+    PText.qml
 )
 
 qt_add_qml_module(UiKitLib
@@ -15,4 +20,6 @@ qt_add_qml_module(UiKitLib
     TYPEINFO UiKit.qmltypes
     QML_FILES
         ${UIKIT_QML_FILES}
+    RESOURCES
+        "fonts/PixelizerBold.ttf"
 )

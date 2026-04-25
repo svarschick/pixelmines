@@ -30,7 +30,6 @@ void UpdateInteractor(T interactor, file_collector::FileSetSPtr fileSet)
     }
 
     interactor->OnUpdateInteractor();
-    qDebug() << interactor->m_textureButtonLeftBorder;
 }
 
 ResourceManager::ResourceManager()

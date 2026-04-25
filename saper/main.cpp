@@ -2,8 +2,10 @@
 #include "managers/resource_manager/resource_manager.h"
 #include "managers/settings_manager/settings_manager.h"
 
+#include <QDebug>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QFontDatabase>
 #include <QtQml/QQmlExtensionPlugin>
 
 #include <memory>

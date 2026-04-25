@@ -5,6 +5,10 @@ target_link_libraries(GUILib PRIVATE Qt6::Gui Qt6::Quick)
 
 list(APPEND GUI_QML_FILES
     Main.qml
+    pages/MainPage.qml
+    pages/SettingsPage.qml
+    pages/GamePage.qml
+    pages/GameSettingsPage.qml
 )
 
 qt_add_qml_module(GUILib
