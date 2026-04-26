@@ -17,8 +17,8 @@ void MinefieldStorage::Reset()
 
 bool MinefieldStorage::IsValid(Pos x, Pos y) const
 {
-    return 0 < x
-        && 0 < y
+    return 0 <= x
+        && 0 <= y
         && x < m_minefieldInteractorSPtr->Width()
         && y < m_minefieldInteractorSPtr->Height();
 }

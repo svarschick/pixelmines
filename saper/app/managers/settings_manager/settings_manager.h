@@ -18,13 +18,15 @@ public:
                     const QString& contextPropertyName
                     );
 
+    SettingsInteractorSPtr GetSettingsInteractor();
+
 private:
     void InitJson();
     void UpdateJson();
     void SaveJson(QJsonDocument doc);
 
 private:
-    SettingsInteractorSPtr m_settingsInteractor;
+    SettingsInteractorSPtr m_settingsInteractorSPtr;
     ResourceManagerSPtr m_resourceManagerSPtr;
 };
 

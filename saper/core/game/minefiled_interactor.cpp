@@ -10,6 +10,21 @@ void MinefieldInteractor::Init(std::uint16_t height, std::uint16_t width, std::u
     m_mines = mines;
 }
 
+void MinefieldInteractor::SetHeight(std::uint16_t value)
+{
+    m_height = value;
+}
+
+void MinefieldInteractor::SetWidth(std::uint16_t value)
+{
+    m_width = value;
+}
+
+void MinefieldInteractor::SetMines(std::uint64_t value)
+{
+    m_mines = value;
+}
+
 std::uint16_t MinefieldInteractor::Height() const
 {
     return m_height;

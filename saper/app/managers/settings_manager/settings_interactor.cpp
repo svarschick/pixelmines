@@ -6,6 +6,8 @@
 namespace app::managers
 {
 
+SettingsInteractor::SettingsInteractor(QObject* parent) : QObject(parent) {}
+
 void SettingsInteractor::OnUpdateInteractor()
 {
     emit guiMultiplyChanged();

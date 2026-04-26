@@ -3,6 +3,8 @@
 #include "minefield_interactor.h"
 #include "minefield_storage.h"
 
+#include <memory>
+
 namespace core
 {
 
@@ -51,5 +53,7 @@ private:
     std::size_t m_openedCells{0};
     std::size_t m_setFlags{0};
 };
+
+using MinefieldSPtr = std::shared_ptr<Minefield>;
 
 } // namespace core

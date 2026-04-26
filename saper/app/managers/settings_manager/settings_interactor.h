@@ -25,7 +25,7 @@ public:
     Q_PROPERTY(qint32 audioVolume READ audioVolume WRITE setAudioVolume NOTIFY audioVolumeChanged)
 
 public:
-    SettingsInteractor(QObject* parent = nullptr) : QObject(parent) {}
+    SettingsInteractor(QObject* parent = nullptr);
 
     void OnUpdateInteractor() override;
 

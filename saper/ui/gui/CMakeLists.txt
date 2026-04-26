@@ -9,6 +9,7 @@ list(APPEND GUI_QML_FILES
     pages/SettingsPage.qml
     pages/GamePage.qml
     pages/GameSettingsPage.qml
+    component/Board.qml
 )
 
 qt_add_qml_module(GUILib

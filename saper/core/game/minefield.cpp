@@ -23,6 +23,7 @@ void Minefield::Reset()
 
 void Minefield::GenerateField()
 {
+    Reset();
     PlaceMines();
     ShuffleFields();
     RebuildHints();

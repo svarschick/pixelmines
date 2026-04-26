@@ -21,6 +21,16 @@ void Field::SetAsVoid()
     m_value = FIELD_VOID_VALUE;
 }
 
+void Field::SetValue(std::uint8_t value)
+{
+    m_value = value;
+}
+
+void Field::SetTextureIndex(std::uint8_t value)
+{
+    m_textureIndex = value;
+}
+
 bool Field::IsMine() const
 {
     return FIELD_MINE_VALUE == m_value;
@@ -41,11 +51,6 @@ bool Field::IsFlagged() const
     return m_isFlagged;
 }
 
-void Field::SetValue(std::uint8_t value)
-{
-    m_value = value;
-}
-
 void Field::Open()
 {
     m_isFlagged = true;
@@ -54,6 +59,16 @@ void Field::Open()
 void Field::ToggleFlag()
 {
     m_isFlagged = !m_isFlagged;
+}
+
+std::uint8_t Field::TextureIndex() const
+{
+    return m_textureIndex;
+}
+
+std::uint8_t Field::Value() const
+{
+    return m_value;
 }
 
 } // namespace core

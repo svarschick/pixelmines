@@ -11,6 +11,10 @@ class MinefieldInteractor
 public:
     void Init(std::uint16_t height, std::uint16_t width, std::uint64_t mines);
 
+    void SetHeight(std::uint16_t value);
+    void SetWidth(std::uint16_t value);
+    void SetMines(std::uint64_t value);
+
     std::uint16_t Height() const;
     std::uint16_t Width() const;
     std::uint64_t Mines() const;

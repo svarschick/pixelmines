@@ -12,15 +12,21 @@ class Field
 {
 public:
     void Reset();
+
     void SetAsMine();
     void SetAsVoid();
+    void SetValue(std::uint8_t value);
+    void SetTextureIndex(std::uint8_t value);
+
     bool IsMine() const;
     bool IsVoid() const;
     bool IsOpen() const;
     bool IsFlagged() const;
-    void SetValue(std::uint8_t value);
+    std::uint8_t TextureIndex() const;
+
     void Open();
     void ToggleFlag();
+    std::uint8_t Value() const;
 
 private:
     std::uint8_t m_value;

@@ -26,6 +26,6 @@ Window {
     Loader {
         anchors.fill: parent
 
-        source: "pages/MainPage.qml"
+        source: "pages/GamePage.qml"
     }
 }
