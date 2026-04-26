@@ -1,0 +1,28 @@
+var namespaceapp_1_1managers =
+[
+    [ "file_collector", "namespaceapp_1_1managers_1_1file__collector.html", "namespaceapp_1_1managers_1_1file__collector" ],
+    [ "sql", "namespaceapp_1_1managers_1_1sql.html", "namespaceapp_1_1managers_1_1sql" ],
+    [ "GameInteractor", "classapp_1_1managers_1_1_game_interactor.html", "classapp_1_1managers_1_1_game_interactor" ],
+    [ "GameManager", "classapp_1_1managers_1_1_game_manager.html", "classapp_1_1managers_1_1_game_manager" ],
+    [ "IUpdateInteractor", "classapp_1_1managers_1_1_i_update_interactor.html", "classapp_1_1managers_1_1_i_update_interactor" ],
+    [ "ResourceManager", "classapp_1_1managers_1_1_resource_manager.html", "classapp_1_1managers_1_1_resource_manager" ],
+    [ "SessionInteractor", "classapp_1_1managers_1_1_session_interactor.html", "classapp_1_1managers_1_1_session_interactor" ],
+    [ "SessionManager", "classapp_1_1managers_1_1_session_manager.html", "classapp_1_1managers_1_1_session_manager" ],
+    [ "SettingsInteractor", "classapp_1_1managers_1_1_settings_interactor.html", "classapp_1_1managers_1_1_settings_interactor" ],
+    [ "SettingsManager", "classapp_1_1managers_1_1_settings_manager.html", "classapp_1_1managers_1_1_settings_manager" ],
+    [ "SqlHandler", "classapp_1_1managers_1_1_sql_handler.html", "classapp_1_1managers_1_1_sql_handler" ],
+    [ "SqlManager", "classapp_1_1managers_1_1_sql_manager.html", "classapp_1_1managers_1_1_sql_manager" ],
+    [ "TextureInteractor", "classapp_1_1managers_1_1_texture_interactor.html", "classapp_1_1managers_1_1_texture_interactor" ],
+    [ "TextureManager", "classapp_1_1managers_1_1_texture_manager.html", "classapp_1_1managers_1_1_texture_manager" ],
+    [ "GameInteractorSPtr", "namespaceapp_1_1managers.html#a1b845669a31927e9a4bda1918ad11f15", null ],
+    [ "GameManagerSPtr", "namespaceapp_1_1managers.html#ac6df9018cc273947c6c82ffc088978d3", null ],
+    [ "QFileSPtr", "namespaceapp_1_1managers.html#ac732fbacbb192572eb949824e78ff0c2", null ],
+    [ "ResourceManagerSPtr", "namespaceapp_1_1managers.html#aff69fb15c01e084fe5e5ce45061ddbbb", null ],
+    [ "SessionInteractorSPtr", "namespaceapp_1_1managers.html#ae217cb6c59e650f6c02e0064538c75b9", null ],
+    [ "SessionManagerSPtr", "namespaceapp_1_1managers.html#a5bac01df2d4fd82427498591844f6a5f", null ],
+    [ "SettingsInteractorSPtr", "namespaceapp_1_1managers.html#aa31e26b07fb1dea93c8e4a4cc1cb42a4", null ],
+    [ "SqlHandlerUPtr", "namespaceapp_1_1managers.html#a5edbe369cf5389b7217bdc01e09e488f", null ],
+    [ "TextureInteractorSPtr", "namespaceapp_1_1managers.html#a0f55f22e20647f1017ad77fdd440187e", null ],
+    [ "TextureManagerSPtr", "namespaceapp_1_1managers.html#ac3d96d77188d4a00a0e6b6a0c67549a0", null ],
+    [ "UpdateInteractor", "namespaceapp_1_1managers.html#aaebf69816366ff7e9b41dadaf4d02844", null ]
+];

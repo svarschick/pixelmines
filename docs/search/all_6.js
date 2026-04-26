@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['game_5finteractor_2ecpp_0',['game_interactor.cpp',['../game__interactor_8cpp.html',1,'']]],
+  ['game_5finteractor_2eh_1',['game_interactor.h',['../game__interactor_8h.html',1,'']]],
+  ['game_5fmanager_2ecpp_2',['game_manager.cpp',['../game__manager_8cpp.html',1,'']]],
+  ['game_5fmanager_2eh_3',['game_manager.h',['../game__manager_8h.html',1,'']]],
+  ['gamehistory_4',['gameHistory',['../namespaceapp_1_1managers_1_1sql_1_1create__table.html#a4d67260946531a35f53978060b1ca60b',1,'app::managers::sql::create_table::gameHistory'],['../namespaceapp_1_1managers_1_1sql_1_1insert.html#abcc4ee4429e7c33c9abb44c76c4ad93c',1,'app::managers::sql::insert::gameHistory'],['../namespaceapp_1_1managers_1_1sql_1_1select.html#a736458875463ce8ba5523af1c10c1b47',1,'app::managers::sql::select::gameHistory']]],
+  ['gameinteractor_5',['GameInteractor',['../classapp_1_1managers_1_1_game_interactor.html',1,'app::managers::GameInteractor'],['../classapp_1_1managers_1_1_game_interactor.html#acfd2d0e223da0325035ce5be58aa7191',1,'app::managers::GameInteractor::GameInteractor()']]],
+  ['gameinteractorsptr_6',['GameInteractorSPtr',['../namespaceapp_1_1managers.html#a1b845669a31927e9a4bda1918ad11f15',1,'app::managers']]],
+  ['gamemanager_7',['GameManager',['../classapp_1_1managers_1_1_game_manager.html',1,'app::managers::GameManager'],['../classapp_1_1managers_1_1_game_manager.html#a92eabab1387e326ba7895abf064b3283',1,'app::managers::GameManager::GameManager()']]],
+  ['gamemanagersptr_8',['GameManagerSPtr',['../namespaceapp_1_1managers.html#ac6df9018cc273947c6c82ffc088978d3',1,'app::managers']]],
+  ['gamestate_9',['GameState',['../namespacecore.html#a687fd3dcea4baacb6690144307a2d9f1',1,'core']]],
+  ['generatefield_10',['GenerateField',['../classcore_1_1_minefield.html#a9560ffd3fca5b609f13f5dd8a7efbf80',1,'core::Minefield']]],
+  ['getminefieldinteractor_11',['GetMinefieldInteractor',['../classapp_1_1managers_1_1_game_manager.html#aaca6b330949fb3bf18f0db7cef7774fd',1,'app::managers::GameManager']]],
+  ['getminefieldstorage_12',['GetMinefieldStorage',['../classapp_1_1managers_1_1_game_manager.html#a7af0f8ce218ed5ef7616968f5c78343f',1,'app::managers::GameManager']]],
+  ['getsettingsinteractor_13',['GetSettingsInteractor',['../classapp_1_1managers_1_1_settings_manager.html#ac8a2817ac26ca22e17af3459ce37f6e0',1,'app::managers::SettingsManager']]],
+  ['guimultiply_14',['guiMultiply',['../classapp_1_1managers_1_1_settings_interactor.html#afe0f7890be0e350d939e8c918b3c64ab',1,'app::managers::SettingsInteractor']]],
+  ['guimultiplychanged_15',['guiMultiplyChanged',['../classapp_1_1managers_1_1_settings_interactor.html#a07ffde5d5f8b6d02b0d780fb8a7904fe',1,'app::managers::SettingsInteractor']]]
+];
